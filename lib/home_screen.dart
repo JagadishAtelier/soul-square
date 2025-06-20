@@ -19,17 +19,16 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-  const TopBar(),
-  const SizedBox(height: 20),
-  NowPlayingCard(), // ✅ no const here
-  const SizedBox(height: 20),
-  RecommendationList(),
-  const SizedBox(height: 20),
-  ArtistList(),
-  const SizedBox(height: 20),
-  LibraryGrid(),
-],
-
+              const TopBar(),
+              const SizedBox(height: 20),
+              NowPlayingCard(),
+              const SizedBox(height: 20),
+              RecommendationList(),
+              const SizedBox(height: 20),
+              ArtistList(),
+              const SizedBox(height: 20),
+              LibraryGrid(),
+            ],
           ),
         ),
       ),
