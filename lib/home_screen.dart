@@ -3,8 +3,9 @@ import 'components/top_bar.dart';
 import 'components/now_playing_card.dart';
 import 'components/recommendation_list.dart';
 import 'components/artist_list.dart';
-import 'components/library_grid.dart';
+ import 'components/library_grid.dart';
 import 'components/bottom_nav.dart';
+import 'components/ad_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,6 +23,8 @@ class HomeScreen extends StatelessWidget {
               const TopBar(),
               const SizedBox(height: 20),
               NowPlayingCard(),
+              const SizedBox(height: 20),
+              AdSection(),
               const SizedBox(height: 20),
               RecommendationList(),
               const SizedBox(height: 20),

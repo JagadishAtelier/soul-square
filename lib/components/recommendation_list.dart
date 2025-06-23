@@ -23,6 +23,8 @@ class RecommendationList extends StatelessWidget {
 
   Widget _buildRecommendationItem(String title, String artist, String imagePath) {
     return Container(
+      height:91,
+      width:343,
       decoration: BoxDecoration(
         color: Colors.grey[850],
         borderRadius: BorderRadius.circular(12),
@@ -31,20 +33,20 @@ class RecommendationList extends StatelessWidget {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Image.asset(imagePath, height: 50, width: 50, fit: BoxFit.cover),
+            borderRadius: BorderRadius.circular(5),
+            child: Image.asset(imagePath, height: 60, width: 60, fit: BoxFit.cover),
           ),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-                Text(artist, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+                Text(title, style: const TextStyle(fontWeight: FontWeight.bold,fontSize:16,color: Colors.white)),
+                Text(artist, style: const TextStyle(color: Colors.white, fontSize: 16)),
               ],
             ),
           ),
-          const Icon(Icons.more_vert, color: Colors.white70),
+          const Icon(Icons.more_vert, color: Colors.white),
         ],
       ),
     );

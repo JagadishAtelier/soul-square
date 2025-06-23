@@ -14,26 +14,48 @@ class ArtistList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Popular Artists", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "Popular Artists",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
         const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: artists.map((artist) {
-            return Column(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(artist['image']!),
-                  radius: 35,
+
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: artists.map((artist) {
+              return Container(
+                margin: const EdgeInsets.only(right: 16.0),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 110,
+                      height: 110,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage(artist['image']!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      artist['name']!,
+                      style: const TextStyle(fontSize: 13),
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 6),
-                Text(
-                  artist['name']!,
-                  style: const TextStyle(fontSize: 12),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            );
-          }).toList(),
+              );
+            }).toList(),
+          ),
         ),
       ],
     );

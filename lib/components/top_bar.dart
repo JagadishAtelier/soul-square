@@ -13,7 +13,6 @@ class TopBar extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // ✅ Custom styled profile image
           Container(
             width: 45,
             height: 45,
@@ -40,11 +39,11 @@ class TopBar extends StatelessWidget {
             children: [
               Text(
                 "Good Morning",
-                style: TextStyle(color: Colors.white70, fontSize: 14),
+                style: TextStyle(color: Colors.white, fontSize: 16,fontWeight: FontWeight.bold),
               ),
               Text(
                 "Amour",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ],
           ),
@@ -59,7 +58,7 @@ class TopBar extends StatelessWidget {
             child: const Icon(Icons.search, color: Colors.white, size: 26),
           ),
           const SizedBox(width: 16),
-          const Icon(Icons.notifications, color: Colors.white, size: 26),
+          const Icon(Icons.notifications, color: Colors.grey, size: 26),
         ],
       ),
     );
