@@ -20,6 +20,7 @@ class PopularArtists extends StatelessWidget {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       physics: const NeverScrollableScrollPhysics(),
+      childAspectRatio: 161 / 70,
       children: artists.map((artist) {
         return GestureDetector(
           onTap: () {

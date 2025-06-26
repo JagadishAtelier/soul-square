@@ -24,13 +24,14 @@ class RecommendationList extends StatelessWidget {
   Widget _buildRecommendationItem(String title, String artist, String imagePath) {
     return Container(
       height:91,
-      width:343,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey[850],
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(10),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(5),
@@ -40,6 +41,7 @@ class RecommendationList extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(title, style: const TextStyle(fontWeight: FontWeight.bold,fontSize:16,color: Colors.white)),
                 Text(artist, style: const TextStyle(color: Colors.white, fontSize: 16)),

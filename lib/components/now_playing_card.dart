@@ -22,7 +22,7 @@ class NowPlayingCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           // 🔹 First Row: Image + Texts + Icon
           Row(
@@ -58,11 +58,18 @@ class NowPlayingCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Icon(BootstrapIcons.skip_start, color: Colors.white, size: 28),
-              Icon(Icons.pause_circle_filled, color: Colors.white, size: 36),
-              Icon(BootstrapIcons.skip_end, color: Colors.white, size: 28),
+              Icon(BootstrapIcons.skip_start, color: Colors.white, size: 20),
+               SizedBox(width: 10),
+              Icon(Icons.pause_circle_filled, color: Colors.white, size: 40),
+               SizedBox(width: 10),
+              Icon(BootstrapIcons.skip_end, color: Colors.white, size: 20),
               Spacer(),
-              Icon(BootstrapIcons.heart, color: Color.fromARGB(255, 111, 64, 138), size: 28),
+              Icon(
+  BootstrapIcons.heart_fill, // ✅ filled version
+  color: Color.fromARGB(255, 111, 64, 138), // same as before
+  size: 30,
+),
+
             ],
           ),
         ],

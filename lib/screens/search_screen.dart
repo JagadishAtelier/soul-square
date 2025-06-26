@@ -34,16 +34,50 @@ class SearchScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
-              const Text("Popular Artists",
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+              // 🔍 Search Box
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: Colors.grey[850],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const TextField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.search, color: Colors.white54),
+                    hintText: "Search artists or songs...",
+                    hintStyle: TextStyle(color: Colors.white54),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // 🎤 Popular Artists
+              const Text(
+                "Popular Artists",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 12),
               PopularArtists(
-                onArtistTap: (name, image) => _navigateToArtistDetail(context, name, image),
+                onArtistTap: (name, image) =>
+                    _navigateToArtistDetail(context, name, image),
               ),
               const SizedBox(height: 24),
-              const Text("Songs",
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+
+              // 🎵 Songs
+              const Text(
+                "Songs",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 12),
               const SongList(),
             ],

@@ -20,6 +20,8 @@ class SongList extends StatelessWidget {
     return Column(
       children: songs.map((song) {
         return Container(
+          height:91,
+          width: double.infinity,
           margin: const EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
             color: const Color(0xFF1F1F1F),
@@ -28,7 +30,7 @@ class SongList extends StatelessWidget {
           child: ListTile(
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(song['image']!, width: 50, height: 50, fit: BoxFit.cover),
+              child: Image.asset(song['image']!, width: 60, height: 60, fit: BoxFit.cover),
             ),
             title: Text(song['title']!, style: const TextStyle(color: Colors.white)),
             subtitle: Text(song['artist']!, style: const TextStyle(color: Colors.white70)),

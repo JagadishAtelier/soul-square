@@ -10,7 +10,7 @@ class LibraryGrid extends StatelessWidget {
         'icon': Icons.favorite,
         'label': 'Liked Songs',
         'subtitle': '14 Songs',
-        'color': Colors.redAccent
+        'color': Color.fromARGB(255, 111, 64, 138)
       },
       {
         'icon': Icons.download,
@@ -22,13 +22,13 @@ class LibraryGrid extends StatelessWidget {
         'icon': Icons.history,
         'label': 'Recently',
         'subtitle': 'Viewed Artist',
-        'color': Colors.orangeAccent
+        'color': Colors.pinkAccent
       },
       {
         'icon': Icons.playlist_play,
         'label': 'Playlists',
         'subtitle': '2 Playlists',
-        'color': Colors.greenAccent
+        'color': Colors.purpleAccent
       },
     ];
 
@@ -49,12 +49,12 @@ class LibraryGrid extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
-              childAspectRatio: 1,
+              childAspectRatio: 161 / 106,
             ),
             itemBuilder: (context, index) {
               final item = items[index];
               return SizedBox(
-                height: 161, // fixed height
+                height: 106, // fixed height
                 width: 161,  // fixed width
                 child: Container(
                   decoration: BoxDecoration(
@@ -63,7 +63,8 @@ class LibraryGrid extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(12),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start, // 👈 align left
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         item['icon'],
@@ -76,6 +77,7 @@ class LibraryGrid extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
+                          fontSize:15,
                         ),
                       ),
                       Text(
