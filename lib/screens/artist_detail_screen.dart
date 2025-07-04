@@ -14,12 +14,13 @@ class ArtistDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, String>> songs = [
       {"title": "Hayyoda", "artist": "Vandha Edam", "image": "assets/gv.jpeg"},
-      {"title": "Bujji Kutty", "artist": "Thandel", "image": "assets/hiphop.jpeg"},
+      {"title": "Bujji kutty", "artist": "Thandel", "image": "assets/hiphop.jpeg"},
       {"title": "Oh Raaya", "artist": "Raayan", "image": "assets/neek.jpeg"},
       {"title": "Chinnanjiru Nilave", "artist": "Ponniyin Selvan", "image": "assets/songList2.jpg"},
-      {"title": "Vaathi Coming", "artist": "Master", "image": "assets/gv.jpeg"},
-      {"title": "Marana Mass", "artist": "Petta", "image": "assets/hiphop.jpeg"},
-      {"title": "Fire Song", "artist": "Kanguva", "image": "assets/neek.jpeg"},
+      {"title": "Hayyoda", "artist": "Vandha Edam", "image": "assets/gv.jpeg"},
+      {"title": "Bujji kutty", "artist": "Thandel", "image": "assets/hiphop.jpeg"},
+      {"title": "Oh Raaya", "artist": "Raayan", "image": "assets/neek.jpeg"},
+      {"title": "Chinnanjiru Nilave", "artist": "Ponniyin Selvan", "image": "assets/songList2.jpg"},
     ];
 
     return Scaffold(
@@ -27,9 +28,10 @@ class ArtistDetailScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            // 🔻 Gradient Header with Circle Avatar
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 30),
               width: double.infinity,
+              height: 220,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xFFBE1EFF), Color(0xFFFF008E)],
@@ -41,41 +43,48 @@ class ArtistDetailScreen extends StatelessWidget {
                   bottomRight: Radius.circular(40),
                 ),
               ),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(artistImage),
-                    radius: 50,
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    artistName,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  const Text(
-                    "Playlist • 14 Songs",
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.download, color: Colors.white, size: 30),
-                      SizedBox(width: 40),
-                      Icon(Icons.play_circle, color: Colors.white, size: 40),
-                      SizedBox(width: 40),
-                      Icon(Icons.shuffle, color: Colors.white, size: 30),
-                    ],
-                  ),
-                ],
+              child: Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(artistImage),
+                  radius: 50,
+                ),
               ),
             ),
+
+            const SizedBox(height: 12),
+
+            // 🎤 Artist Info
+            Text(
+              artistName,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              "Playlist • 14 Songs",
+              style: TextStyle(color: Colors.white70),
+            ),
+
             const SizedBox(height: 20),
+
+            // 🎧 Control Icons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.download, color: Colors.white, size: 26),
+                SizedBox(width: 30),
+                Icon(Icons.play_circle, color: Colors.white, size: 40),
+                SizedBox(width: 30),
+                Icon(Icons.shuffle, color: Colors.white, size: 26),
+              ],
+            ),
+
+            const SizedBox(height: 20),
+
+            // 🎶 Song List
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -84,11 +93,13 @@ class ArtistDetailScreen extends StatelessWidget {
                   final song = songs[index];
                   return Container(
                     margin: const EdgeInsets.only(bottom: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                       color: const Color(0xFF1F1F1F),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: ListTile(
+                      contentPadding: EdgeInsets.zero,
                       leading: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
@@ -100,11 +111,17 @@ class ArtistDetailScreen extends StatelessWidget {
                       ),
                       title: Text(
                         song['title']!,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       subtitle: Text(
                         song['artist']!,
-                        style: const TextStyle(color: Colors.white70),
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 13,
+                        ),
                       ),
                       trailing: const Icon(Icons.more_vert, color: Colors.white),
                     ),

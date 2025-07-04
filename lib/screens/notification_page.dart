@@ -6,13 +6,16 @@ void main() {
     debugShowCheckedModeBanner: false,
   ));
 }
-
 class NotificationPage extends StatefulWidget {
+  const NotificationPage({super.key});
+
   @override
-  _NotificationPageState createState() => _NotificationPageState();
+  NotificationPageState createState() => NotificationPageState();
 }
 
-class _NotificationPageState extends State<NotificationPage> {
+
+
+class NotificationPageState extends State<NotificationPage> {
   bool isNotificationOn = false;
 
   @override
