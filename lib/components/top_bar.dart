@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/search_screen.dart';
+import '../screens/NotificationPage.dart'; // 👈 Import your NotificationPage
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
@@ -39,7 +40,10 @@ class TopBar extends StatelessWidget {
             children: [
               Text(
                 "Good Morning",
-                style: TextStyle(color: Colors.white, fontSize: 16,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
               Text(
                 "Amour",
@@ -58,7 +62,15 @@ class TopBar extends StatelessWidget {
             child: const Icon(Icons.search, color: Colors.white, size: 26),
           ),
           const SizedBox(width: 16),
-          const Icon(Icons.notifications, color: Colors.grey, size: 26),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationPage()), // 👈 Navigate to notification page
+              );
+            },
+            child: const Icon(Icons.notifications, color: Colors.grey, size: 26),
+          ),
         ],
       ),
     );

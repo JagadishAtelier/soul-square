@@ -16,28 +16,60 @@ class SongList extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: songs.map((song) {
-        return Container(
-          height:91,
-          width: double.infinity,
-          margin: const EdgeInsets.only(bottom: 12),
-          decoration: BoxDecoration(
-            color: const Color(0xFF1F1F1F),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ListTile(
-            leading: ClipRRect(
+Widget build(BuildContext context) {
+  return Column(
+    children: songs.map((song) {
+      return Container(
+        height: 91,
+        width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12), // Padding inside the card
+        decoration: BoxDecoration(
+          color: const Color(0xFF1F1F1F),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center, // Center vertically
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(song['image']!, width: 60, height: 60, fit: BoxFit.cover),
+              child: Image.asset(
+                song['image']!,
+                width: 60,
+                height: 60,
+                fit: BoxFit.cover,
+              ),
             ),
-            title: Text(song['title']!, style: const TextStyle(color: Colors.white)),
-            subtitle: Text(song['artist']!, style: const TextStyle(color: Colors.white70)),
-            trailing: const Icon(Icons.more_vert, color: Colors.white),
-          ),
-        );
-      }).toList(),
-    );
-  }
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center, // Center text vertically
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    song['title']!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    song['artist']!,
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.more_vert, color: Colors.white),
+          ],
+        ),
+      );
+    }).toList(),
+  );
+}
 }
