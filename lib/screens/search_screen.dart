@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/popular_artists.dart';
 import '../components/song_list.dart';
 import '../screens/artist_detail_screen.dart';
+import '../components/bottom_nav.dart'; // ✅ Import BottomNavBar
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -28,6 +29,7 @@ class SearchScreen extends StatelessWidget {
         title: const Text('Search', style: TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
+      bottomNavigationBar: const BottomNavBar(), // ✅ Add BottomNavBar here
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/popular_artists.dart';
 import '../components/song_list.dart';
 import '../screens/artist_detail_screen.dart';
+import '../components/bottom_nav.dart'; // ✅ Import the BottomNavBar
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -26,6 +27,7 @@ class SearchPage extends StatelessWidget {
         backgroundColor: const Color(0xFF0D0D0D),
         elevation: 0,
       ),
+      bottomNavigationBar: const BottomNavBar(), // ✅ Add bottom nav here
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(

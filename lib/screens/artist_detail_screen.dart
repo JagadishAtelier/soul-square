@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/bottom_nav.dart'; // Adjust path based on your structure
 
 class ArtistDetailScreen extends StatelessWidget {
   final String artistName;
@@ -25,10 +26,11 @@ class ArtistDetailScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D0D),
+      bottomNavigationBar: const BottomNavBar(), // ✅ Add this line
       body: SafeArea(
         child: Column(
           children: [
-            // 🔻 Gradient Header with Circle Avatar
+            // 🔻 Header
             Container(
               width: double.infinity,
               height: 220,

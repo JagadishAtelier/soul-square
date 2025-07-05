@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../components/song_list.dart'; // make sure this file exists and exports a valid widget
+import '../components/song_list.dart';
+import '../components/bottom_nav.dart'; // ✅ Import your BottomNavBar
 
 class PopMusicPage extends StatelessWidget {
   const PopMusicPage({super.key});
@@ -8,6 +9,7 @@ class PopMusicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      bottomNavigationBar: const BottomNavBar(), // ✅ Add this line
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
@@ -42,9 +44,9 @@ class PopMusicPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-        child: const SongList(), // ✅ Direct usage, no nested Row
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+        child: SongList(),
       ),
     );
   }

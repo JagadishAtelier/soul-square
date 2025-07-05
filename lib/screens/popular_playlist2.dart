@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/popular_artists.dart';
 import '../components/song_list.dart';
 import '../screens/artist_detail_screen.dart';
+import '../components/bottom_nav.dart'; // ✅ Add this line
 
 class PopularPlaylist2 extends StatelessWidget {
   const PopularPlaylist2({super.key});
@@ -26,6 +27,7 @@ class PopularPlaylist2 extends StatelessWidget {
         backgroundColor: const Color(0xFF0D0D0D),
         elevation: 0,
       ),
+      bottomNavigationBar: const BottomNavBar(), // ✅ Add this line here
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -66,45 +68,42 @@ class PopularPlaylist2 extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Container(
-  height: 200,
-  width: 200,
-  decoration: BoxDecoration(
-    color: const Color(0xFF6947E5),
-    borderRadius: BorderRadius.circular(20),
-  ),
-  child: Stack(
-    children: [
-      // 🔥 Fire icon at center (slightly higher)
-      Align(
-        alignment: const Alignment(0, -0.3),
-        child: Image.asset(
-          'assets/fire_icon.png', // Place your fire icon here
-          height: 50,
-          width: 50,
-        ),
-      ),
-      // ▶️ Play button at bottom-right
-      Positioned(
-        bottom: 12,
-        right: 12,
-        child: Container(
-          height: 30,
-          width: 30,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          child: const Icon(
-            Icons.play_arrow,
-            size: 20,
-            color: Colors.black,
-          ),
-        ),
-      ),
-    ],
-  ),
-),
-
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF6947E5),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: const Alignment(0, -0.3),
+                            child: Image.asset(
+                              'assets/fire_icon.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 12,
+                            right: 12,
+                            child: Container(
+                              height: 30,
+                              width: 30,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Icons.play_arrow,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
