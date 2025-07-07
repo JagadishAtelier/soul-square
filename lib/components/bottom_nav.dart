@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/music_player_ui.dart'; // Adjust if needed
-
+import '../screens/playlist_screen.dart';
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
@@ -21,6 +21,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const MusicPlayerFullScreen()),
+      );
+      // No need to reset index after returning
+    }
+    if (index == 3) {
+      // Navigate to Music Player
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const PlaylistScreen()),
       );
       // No need to reset index after returning
     }
