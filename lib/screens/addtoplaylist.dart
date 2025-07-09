@@ -87,7 +87,10 @@ class Song {
   final String artist;
   final String svgPicture; // svg asset path
 
-  Song({required this.title, required this.artist, required this.SvgPicture});
+  Song({
+    required this.title, 
+  required this.artist, 
+  required this.SvgPicture});
 }
 
 /*                            SAMPLE SONG DATA                                */

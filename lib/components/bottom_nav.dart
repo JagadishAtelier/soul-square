@@ -26,17 +26,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
       );
       // No need to reset index after returning
     }
-     if (index == 1) {
-      // Navigate to Music Player
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const ExplorePage()),
-      );
-      // No need to reset index after returning
-    }
-    if(index==3){
-       Navigator.push(context, MaterialPageRoute(builder: (context)=> MyPlaylist()));
-    }
   }
 
   @override
