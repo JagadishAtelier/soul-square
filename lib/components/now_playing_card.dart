@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:my_app/screens/myplaylist.dart';
+
 class NowPlayingCard extends StatelessWidget {
   const NowPlayingCard({super.key});
 
@@ -41,35 +43,50 @@ class NowPlayingCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Now Playing",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
+                  Text(
+                    "Now Playing",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                   SizedBox(height: 4),
-                  Text("Golden Sparrow",
-                      style: TextStyle(color: Colors.white70)),
+                  Text(
+                    "Golden Sparrow",
+                    style: TextStyle(color: Colors.white70),
+                  ),
                 ],
               ),
               const Spacer(),
-              const Icon(Icons.person_add_alt, size: 30, color: Colors.white),
+              IconButton(
+                icon: const Icon(
+                  Icons.person_add_alt,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  // push the next screen
+                 
+                  
+                },
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Icon(BootstrapIcons.skip_start, color: Colors.white, size: 20),
-               SizedBox(width: 10),
+              SizedBox(width: 10),
               Icon(Icons.pause_circle_filled, color: Colors.white, size: 40),
-               SizedBox(width: 10),
+              SizedBox(width: 10),
               Icon(BootstrapIcons.skip_end, color: Colors.white, size: 20),
               Spacer(),
               Icon(
-  BootstrapIcons.heart_fill, // ✅ filled version
-  color: Color.fromARGB(255, 111, 64, 138), // same as before
-  size: 30,
-),
-
+                BootstrapIcons.heart_fill, // ✅ filled version
+                color: Color.fromARGB(255, 111, 64, 138), // same as before
+                size: 30,
+              ),
             ],
           ),
         ],
