@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../screens/search_screen.dart';
 import '../screens/notification_page.dart'; // 👈 Import your NotificationPage
 import '../screens/search_page.dart';
-import '../screens/popular_playlist2.dart';
-import '../screens/pop_music.dart';
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
 
@@ -68,7 +66,7 @@ class TopBar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PopularPlaylist2()), // 👈 Navigate to notification page
+                MaterialPageRoute(builder: (context) => NotificationPage()), // 👈 Navigate to notification page
               );
             },
             child: const Icon(Icons.notifications, color: Colors.grey, size: 26),

@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 import '../components/song_list.dart';
 import '../components/bottom_nav.dart'; // ✅ Import your BottomNavBar
 
-class PopMusicPage extends StatelessWidget {
-  const PopMusicPage({super.key});
+class PopMusicPage extends StatefulWidget {
+  final String title;
 
+  const PopMusicPage({super.key, required this.title});
+
+  @override
+  State<PopMusicPage> createState() => _PopMusicPageState();
+}
+
+class _PopMusicPageState extends State<PopMusicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: const BottomNavBar(), // ✅ Add this line
+      bottomNavigationBar: const BottomNavBar(),
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.only(left: 12.0),
           child: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: () => Navigator.pop(context),
             child: Container(
               height: 30,
               width: 30,
@@ -34,9 +39,9 @@ class PopMusicPage extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text(
-          'Pop Music',
-          style: TextStyle(
+        title: Text(
+          widget.title,
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
             fontSize: 16,

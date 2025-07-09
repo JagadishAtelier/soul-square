@@ -89,27 +89,30 @@ class Song {
 
   Song({
     required this.title, 
-  required this.artist, 
-  required this.SvgPicture});
+    required this.artist, 
+    required this.svgPicture, // ✅ fix capitalization
+  });
 }
+
 
 /*                            SAMPLE SONG DATA                                */
 final List<Song> songs = [
-  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', SvgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          SvgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           SvgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         SvgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     SvgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         SvgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          SvgPicture: 'assets/ohraaya.svg'),
-  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', SvgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          SvgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           SvgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         SvgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     SvgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         SvgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          SvgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
+  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
+  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
 ];
+
 
 /*                       RECOMMENDED SONGS LIST (UI)                          */
 class RecommendedSongsList extends StatelessWidget {
