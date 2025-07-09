@@ -1,118 +1,89 @@
 import 'package:flutter/material.dart';
-import '../components/popular_artists.dart';
 import '../components/song_list.dart';
-import '../screens/artist_detail_screen.dart';
-import '../components/bottom_nav.dart'; // ✅ Add this line
+import '../components/bottom_nav.dart';
 
-class PopularPlaylist2 extends StatelessWidget {
-  const PopularPlaylist2({super.key});
+class PopularPlaylistPage extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final List<Color> gradient;
 
-  void _navigateToArtistDetail(BuildContext context, String name, String image) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ArtistDetailScreen(
-          artistName: name,
-          artistImage: image,
-        ),
-      ),
-    );
-  }
+  const PopularPlaylistPage({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.gradient,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D0D),
+      bottomNavigationBar: const BottomNavBar(),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0D0D0D),
         elevation: 0,
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white, fontSize: 18),
+        ),
+        centerTitle: true,
       ),
-      bottomNavigationBar: const BottomNavBar(), // ✅ Add this line here
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // 🔍 Search Box
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: Colors.grey[850],
-                  borderRadius: BorderRadius.circular(12),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Gradient Icon Box
+            Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: gradient,
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-                child: const TextField(
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.search, color: Colors.white54),
-                    hintText: "Search artists or songs...",
-                    hintStyle: TextStyle(color: Colors.white54),
-                    border: InputBorder.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Icon(
+                      icon,
+                      size: 60,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // 🌟 Centered "Viral" Title and Box
-              Center(
-                child: Column(
-                  children: [
-                    const Text(
-                      "Viral",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                  Positioned(
+                    bottom: 12,
+                    right: 12,
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: const BoxDecoration(
                         color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.play_arrow,
+                        size: 20,
+                        color: Colors.black,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF6947E5),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: const Alignment(0, -0.3),
-                            child: Image.asset(
-                              'assets/fire_icon.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 12,
-                            right: 12,
-                            child: Container(
-                              height: 30,
-                              width: 30,
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.play_arrow,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-
-              const SizedBox(height: 24),
-
-              const SongList(),
-            ],
-          ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              subtitle,
+              style: const TextStyle(color: Colors.white60, fontSize: 14),
+            ),
+            const SizedBox(height: 24),
+            const Expanded(child: SongList()),
+          ],
         ),
       ),
     );

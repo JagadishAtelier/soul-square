@@ -88,12 +88,20 @@ class Song {
   final String artist;
   final String svgPicture; 
 
+<<<<<<< HEAD
   const Song({
     required this.title,
     required this.artist,
     required this.svgPicture
+=======
+  Song({
+    required this.title, 
+    required this.artist, 
+    required this.svgPicture, // ✅ fix capitalization
+>>>>>>> dd0744ce27da1e2400958ce8f559159dc6cd8f80
   });
 }
+
 
 /*                            SAMPLE SONG DATA                                */
 final List<Song> songs = [
@@ -112,6 +120,7 @@ final List<Song> songs = [
   Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
   Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
 ];
+
 
 /*                       RECOMMENDED SONGS LIST (UI)                          */
 class RecommendedSongsList extends StatelessWidget {
