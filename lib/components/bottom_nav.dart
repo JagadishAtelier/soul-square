@@ -24,7 +24,23 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context,
         MaterialPageRoute(builder: (context) => const MusicPlayerFullScreen()),
       );
-      // No need to reset index after returning
+      
+    }
+     if (index == 1) {
+      // Navigate to Music Player
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ExplorePage()),
+      );
+      
+    }
+     if (index == 3) {
+      // Navigate to Music Player
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyPlaylist()),
+      );
+      
     }
   }
 

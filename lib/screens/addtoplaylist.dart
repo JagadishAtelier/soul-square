@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; 
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/screens/myplaylistfinal.dart'; 
 
 void main() => runApp(const MyApp());
 
@@ -85,30 +86,31 @@ class PlaylistSearchField extends StatelessWidget {
 class Song {
   final String title;
   final String artist;
-  final String svgPicture; // svg asset path
+  final String svgPicture; 
 
-  Song({
-    required this.title, 
-  required this.artist, 
-  required this.SvgPicture});
+  const Song({
+    required this.title,
+    required this.artist,
+    required this.svgPicture
+  });
 }
 
 /*                            SAMPLE SONG DATA                                */
 final List<Song> songs = [
-  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', SvgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          SvgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           SvgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         SvgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     SvgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         SvgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          SvgPicture: 'assets/ohraaya.svg'),
-  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', SvgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          SvgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           SvgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         SvgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     SvgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         SvgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          SvgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
+  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
+  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
 ];
 
 /*                       RECOMMENDED SONGS LIST (UI)                          */
@@ -153,11 +155,14 @@ class RecommendedSongsList extends StatelessWidget {
                   color: Colors.white30,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(
-                  Icons.add,
-                  size: 18,
-                  color: Colors.white,
-                ),
+                child: IconButton(onPressed: (){
+                  Text("ADDED");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Myplaylistfinal()));
+                    
+                }, 
+                icon:const Icon(Icons.add,
+                size: 18,
+                color: Colors.white,),),
               ),
             ),
           ),

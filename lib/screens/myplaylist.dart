@@ -207,7 +207,7 @@ class PlaylistSection extends StatelessWidget {
 class Song {
   final String title;
   final String artist;
-  final String svgPicture; // renamed to avoid clashing with SvgPicture class
+  final String svgPicture; 
 
   const Song({
     required this.title,
