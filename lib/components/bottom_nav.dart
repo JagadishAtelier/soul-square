@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/screens/explorepage.dart';
+import 'package:my_app/screens/myplaylist.dart';
 import '../screens/music_player_ui.dart'; 
 import '../screens/playlist_screen.dart';
 class BottomNavBar extends StatefulWidget {
@@ -30,34 +31,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context,
         MaterialPageRoute(builder: (context) => const MusicPlayerFullScreen()),
       );
-<<<<<<< HEAD
-      
-    }
-     if (index == 1) {
-      // Navigate to Music Player
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const ExplorePage()),
-      );
-      
-    }
-     if (index == 3) {
-      // Navigate to Music Player
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const MyPlaylist()),
-      );
-      
-=======
     }
     if (index == 3) {
       // Navigate to Music Player
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const PlaylistScreen()),
+        MaterialPageRoute(builder: (context) => const MyPlaylist()),
       );
       // No need to reset index after returning
->>>>>>> dd0744ce27da1e2400958ce8f559159dc6cd8f80
     }
   }
 

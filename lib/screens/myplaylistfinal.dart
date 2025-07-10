@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/components/bottom_nav.dart';
 import 'package:my_app/screens/addtoplaylist.dart';
 
 void main() => runApp(const MyApp());
@@ -41,20 +42,12 @@ class _MyplaylistfinalState extends State<Myplaylistfinal> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                /* ───────── search bar ───────── */
                 PlaylistSearchField(),
                 SizedBox(height: 20),
-
-                /* ───────── playlist collage ───────── */
                 PlaylistSection(),
                 SizedBox(height: 20),
-
-                /* ───────── first list (⋮ instead of +) ───────── */
-                SizedBox(height: 220, child: SongsListWithMenu()),
-
+                SongsListWithMenu(),
                 SizedBox(height: 20),
-
-                /* ───────── header + standard list ───────── */
                 Text(
                   'Recommended Songs',
                   style: TextStyle(
@@ -64,9 +57,8 @@ class _MyplaylistfinalState extends State<Myplaylistfinal> {
                   ),
                 ),
                 SizedBox(height: 10),
-                SizedBox(height: 220, child: RecommendedSongsList()),
-
-                SizedBox(height: 20), // bottom padding
+                RecommendedSongsList(),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -166,8 +158,8 @@ class PlaylistSection extends StatelessWidget {
                     );
                   },
                   icon: Container(
-                    width: 28,
-                    height: 28,
+                    width: 24,
+                    height: 24,
                     decoration: BoxDecoration(
                       color: Colors.white24,
                       borderRadius: BorderRadius.circular(20),
@@ -235,11 +227,8 @@ class SongsListWithMenu extends StatelessWidget {
   const SongsListWithMenu({super.key});
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: songs.length,
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
-      itemBuilder: (context, i) {
+    return Column(
+      children: List.generate(songs.length, (i) {
         final s = songs[i];
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 6),
@@ -257,12 +246,12 @@ class SongsListWithMenu extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.more_vert, color: Colors.white),
               onPressed: () {
-                // handle more‑options menu here
+                // handle menu
               },
             ),
           ),
         );
-      },
+      }),
     );
   }
 }
@@ -274,11 +263,8 @@ class RecommendedSongsList extends StatelessWidget {
   const RecommendedSongsList({super.key});
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: songs.length,
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
-      itemBuilder: (context, i) {
+    return Column(
+      children: List.generate(songs.length, (i) {
         final s = songs[i];
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 6),
@@ -305,29 +291,7 @@ class RecommendedSongsList extends StatelessWidget {
             ),
           ),
         );
-      },
-    );
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                          BOTTOM NAVIGATION BAR                             */
-/* -------------------------------------------------------------------------- */
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.pink[400],
-      unselectedItemColor: Colors.white60,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.mic), label: 'Voice'),
-        BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      ],
+      }),
     );
   }
 }

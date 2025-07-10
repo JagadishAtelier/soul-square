@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/screens/myplaylistfinal.dart'; 
+import 'package:my_app/screens/explorepage.dart';
+import 'package:my_app/screens/myplaylistfinal.dart';
+import '../components/bottom_nav.dart';
 
 void main() => runApp(const MyApp());
 
@@ -41,7 +43,6 @@ class _AddtoplaylistState extends State<Addtoplaylist> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               PlaylistSearchField(),
-             
               SizedBox(height: 20),
               Expanded(child: RecommendedSongsList()),
             ],
@@ -86,41 +87,32 @@ class PlaylistSearchField extends StatelessWidget {
 class Song {
   final String title;
   final String artist;
-  final String svgPicture; 
+  final String svgPicture;
 
-<<<<<<< HEAD
-  const Song({
+  Song({
     required this.title,
     required this.artist,
-    required this.svgPicture
-=======
-  Song({
-    required this.title, 
-    required this.artist, 
-    required this.svgPicture, // ✅ fix capitalization
->>>>>>> dd0744ce27da1e2400958ce8f559159dc6cd8f80
+    required this.svgPicture,
   });
 }
-
 
 /*                            SAMPLE SONG DATA                                */
 final List<Song> songs = [
   Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Vaathi Coming', artist: 'Master', svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass', artist: 'Petta', svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song', artist: 'Kanguva', svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda', artist: 'Vandha Edam', svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty', artist: 'Thandel', svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya', artist: 'Raayan', svgPicture: 'assets/ohraaya.svg'),
   Song(title: 'Chinnanjiru Nilave', artist: 'Ponniyin Selvan', svgPicture: 'assets/chinnanjiru.svg'),
-  Song(title: 'Vaathi Coming',      artist: 'Master',          svgPicture: 'assets/vaathi.svg'),
-  Song(title: 'Marana Mass',        artist: 'Petta',           svgPicture: 'assets/maranamass.svg'),
-  Song(title: 'Fire Song',          artist: 'Kanguva',         svgPicture: 'assets/firesong.svg'),
-  Song(title: 'Hayyoda',            artist: 'Vandha Edam',     svgPicture: 'assets/hayyoda.svg'),
-  Song(title: 'Buji kutty',         artist: 'Thandel',         svgPicture: 'assets/bujjikutty.svg'),
-  Song(title: 'Oh Raaya',           artist: 'Raayan',          svgPicture: 'assets/ohraaya.svg'),
+  Song(title: 'Vaathi Coming', artist: 'Master', svgPicture: 'assets/vaathi.svg'),
+  Song(title: 'Marana Mass', artist: 'Petta', svgPicture: 'assets/maranamass.svg'),
+  Song(title: 'Fire Song', artist: 'Kanguva', svgPicture: 'assets/firesong.svg'),
+  Song(title: 'Hayyoda', artist: 'Vandha Edam', svgPicture: 'assets/hayyoda.svg'),
+  Song(title: 'Buji kutty', artist: 'Thandel', svgPicture: 'assets/bujjikutty.svg'),
+  Song(title: 'Oh Raaya', artist: 'Raayan', svgPicture: 'assets/ohraaya.svg'),
 ];
-
 
 /*                       RECOMMENDED SONGS LIST (UI)                          */
 class RecommendedSongsList extends StatelessWidget {
@@ -164,14 +156,20 @@ class RecommendedSongsList extends StatelessWidget {
                   color: Colors.white30,
                   shape: BoxShape.circle,
                 ),
-                child: IconButton(onPressed: (){
-                  Text("ADDED");
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Myplaylistfinal()));
-                    
-                }, 
-                icon:const Icon(Icons.add,
-                size: 18,
-                color: Colors.white,),),
+                child: IconButton(
+                  onPressed: () {
+                    Text("ADDED");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Myplaylistfinal()),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.add,
+                    size: 18,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
@@ -181,25 +179,46 @@ class RecommendedSongsList extends StatelessWidget {
   }
 }
 
+// /*                     PLACEHOLDER: BOTTOM NAVIGATION BAR                     */
+// class BottomNavBar extends StatefulWidget {
+//   const BottomNavBar({super.key});
 
+//   @override
+//   State<BottomNavBar> createState() => _BottomNavBarState();
+// }
 
-/*                     PLACEHOLDER: BOTTOM NAVIGATION BAR                     */
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+// class _BottomNavBarState extends State<BottomNavBar> {
+//   int _selectedIndex = 0;
 
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.pink[400],
-      unselectedItemColor: Colors.white60,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.mic), label: 'Voice'),
-        BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      ],
-    );
-  }
-}
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     if (index == 1) {
+//       Navigator.push(
+//         context,
+//         MaterialPageRoute(builder: (context) => const ExplorePage()),
+//       );
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BottomNavigationBar(
+//       backgroundColor: Colors.black,
+//       currentIndex: _selectedIndex,
+//       selectedItemColor: Colors.pinkAccent,
+//       unselectedItemColor: Colors.white54,
+//       type: BottomNavigationBarType.fixed,
+//       onTap: _onItemTapped,
+//       items: const [
+//         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+//         BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+//         BottomNavigationBarItem(icon: Icon(Icons.mic), label: 'Voice'),
+//         BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
+//         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+//       ],
+//     );
+//   }
+// }

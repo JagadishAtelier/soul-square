@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/components/bottom_nav.dart';
 import 'package:my_app/screens/addtoplaylist.dart';
 
 void main() => runApp(const MyApp());
@@ -282,30 +283,33 @@ class RecommendedSongsList extends StatelessWidget {
             ),
           ),
         );
+        
       },
+
     );
+    
   }
 }
 
 /* -------------------------------------------------------------------------- */
 /*                     PLACEHOLDER: BOTTOM NAVIGATION BAR                     */
 /* -------------------------------------------------------------------------- */
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+// class BottomNavBar extends StatelessWidget {
+//   const BottomNavBar({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.pink[400],
-      unselectedItemColor: Colors.white60,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.mic), label: 'Voice'),
-        BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BottomNavigationBar(
+//       backgroundColor: Colors.black,
+//       selectedItemColor: Colors.pink[400],
+//       unselectedItemColor: Colors.white60,
+//       items: const [
+//         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+//         BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+//         BottomNavigationBarItem(icon: Icon(Icons.mic), label: 'Voice'),
+//         BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
+//         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+//       ],
+//     );
+//   }
+// }
